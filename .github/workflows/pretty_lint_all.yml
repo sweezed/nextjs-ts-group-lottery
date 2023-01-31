@@ -1,0 +1,41 @@
+name: Linting Whole Project
+on:
+  pull_request:
+    branches:
+      - 'main'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
+
+      - name: Install Node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Eslint & Prettier
+        run: |
+          echo 'Installing linting dependencies...'
+          npm install eslint-plugin-react@latest --save-dev
+
+      - name: Lint
+        run: |
+          echo 'Performing eslinting..'
+          npx eslint --fix .
+
+      - name: Make Pretty
+        run: |
+          echo 'Making pretty...'
+          npx prettier --write .
+
+      - name: Commit lint & prettier changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'chore: lint & prettier'
+          commit_options: '--no-verify'
+          branch: ${{ github.head_ref}}

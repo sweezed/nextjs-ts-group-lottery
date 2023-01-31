@@ -1,0 +1,44 @@
+name: Client to Main
+on:
+  pull_request:
+    branches:
+      - 'main'
+    paths:
+      - 'client/**'
+      - '.github/workflows/client_to_main.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
+
+      - name: Install Node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: install-dependencies
+        run: |
+          echo 'Installing dependencies...'
+          cd client
+          npm ci
+
+      - name: Test
+        run: |
+          echo 'Testing...'
+          cd auth
+          echo "npm run test(testing not implemented yet!)
+    
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+        - name: Build 
+          run: |
+            echo 'Building...'
+            cd auth
+            npm run build
