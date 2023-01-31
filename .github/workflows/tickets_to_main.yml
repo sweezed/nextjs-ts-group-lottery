@@ -31,7 +31,7 @@ jobs:
         run: |
           echo 'Testing...'
           cd tickets
-          echo "npm run test(testing not implemented yet!)
+          echo "npm run test(testing not implemented yet!)"
     
   build:
     needs: test

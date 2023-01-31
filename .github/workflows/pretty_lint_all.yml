@@ -18,10 +18,12 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install Eslint & Prettier
+      - name: Install Eslint & Prettier dependencies
         run: |
           echo 'Installing linting dependencies...'
           npm install eslint-plugin-react@latest --save-dev
+          npm install eslint@8.33.0 --save
+          npm install eslint-config-next@13.1.6 --save
 
       - name: Lint
         run: |

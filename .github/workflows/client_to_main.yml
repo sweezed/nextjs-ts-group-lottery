@@ -30,8 +30,8 @@ jobs:
       - name: Test
         run: |
           echo 'Testing...'
-          cd auth
-          echo "npm run test(testing not implemented yet!)
+          cd client
+          echo "npm run test(testing not implemented yet!)"
     
   build:
     needs: test
@@ -40,5 +40,5 @@ jobs:
         - name: Build 
           run: |
             echo 'Building...'
-            cd auth
+            cd client
             npm run build
