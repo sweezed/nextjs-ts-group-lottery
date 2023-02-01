@@ -4,6 +4,7 @@
     "node": true,
     "browser": true
   },
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -12,8 +13,8 @@
     "sourceType": "module"
   },
   "extends": [
+    "plugin:@typescript-eslint/recommended",
     "next/core-web-vitals",
-    "@typescript-eslint/recommended",
     "plugin:react/recommended", 
     "plugin:react/jsx-runtime"
   ],
