@@ -49,7 +49,7 @@ export const Header = ({ currentUser }: ICurrentUserProps) => {
         href="/"
         className="navbar-brand ps-2"
       >
-        Home
+        Homes
       </Link>
       <div className="d-flex justify-content-end pe-2">
         <ul className="nav d-flex align-items-center">{links}</ul>
