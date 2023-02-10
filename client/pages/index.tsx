@@ -1,8 +1,10 @@
 import Head from 'next/head'
 import { type AxiosResponse } from 'axios'
+
+
 import { type NextPageContext } from 'next'
 import { buildClient } from '../apiHelpers/build-client'
-
+const a = true
 function Home() {
   return (
     <>
