@@ -6,6 +6,7 @@ import { type NextPageContext } from 'next'
 import { buildClient } from '../apiHelpers/build-client'
 const a = true
 function Home() {
+  console.log(a)
   return (
     <>
       <Head>
